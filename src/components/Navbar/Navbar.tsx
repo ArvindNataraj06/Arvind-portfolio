@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
 import Container from "../ui/Container";
+import { useUI } from "../../context/ui-context";
 
 type NavItem = { label: string; href: string };
 
@@ -11,6 +12,7 @@ const NAV: NavItem[] = [
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
+
 
 function getActiveSection(ids: string[]) {
   const scrollY = window.scrollY;
@@ -29,6 +31,8 @@ function getActiveSection(ids: string[]) {
 }
 
 export default function Navbar() {
+    
+const { lang, setLang, theme, toggleTheme } = useUI();
   const sectionIds = useMemo(
     () => ["hero", "about", "experience", "skills", "projects", "contact"],
     []
@@ -94,6 +98,40 @@ export default function Navbar() {
             Connect
           </button>
         </nav>
+
+        <div className="flex items-center gap-2">
+  {/* Language toggle */}
+  <div className="rounded-lg border border-slate-200 bg-white p-1 dark:bg-slate-900 dark:border-slate-700">
+    <button
+      onClick={() => setLang("en")}
+      className={`rounded-md px-2 py-1 text-xs font-semibold ${
+        lang === "en" ? "bg-blue-600 text-white" : "text-slate-600 dark:text-slate-300"
+      }`}
+    >
+      EN
+    </button>
+    <button
+      onClick={() => setLang("de")}
+      className={`rounded-md px-2 py-1 text-xs font-semibold ${
+        lang === "de" ? "bg-blue-600 text-white" : "text-slate-600 dark:text-slate-300"
+      }`}
+    >
+      DE
+    </button>
+  </div>
+
+  {/* Theme toggle */}
+  <button
+    onClick={toggleTheme}
+    className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 hover:bg-slate-50
+               dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+    aria-label="Toggle theme"
+    title="Toggle theme"
+  >
+    {theme === "light" ? "🌙" : "☀️"}
+  </button>
+</div>
+
 
         {/* Mobile */}
         <button
