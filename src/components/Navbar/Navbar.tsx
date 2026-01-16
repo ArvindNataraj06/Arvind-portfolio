@@ -2,17 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
 import Container from "../ui/Container";
 import { useUI } from "../../context/ui-context";
+import { strings } from "../../i18n/strings";
 
 type NavItem = { label: string; href: string };
-
-const NAV: NavItem[] = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
-
 
 function getActiveSection(ids: string[]) {
   const scrollY = window.scrollY;
@@ -33,6 +25,17 @@ function getActiveSection(ids: string[]) {
 export default function Navbar() {
     
 const { lang, setLang, theme, toggleTheme } = useUI();
+const t = strings[lang].nav;
+
+const NAV: NavItem[] = [
+  { label: t.about, href: "#about" },
+  { label: t.experience, href: "#experience" },
+  { label: t.skills, href: "#skills" },
+  { label: t.projects, href: "#projects" },
+  { label: t.contact, href: "#contact" },
+];
+
+
   const sectionIds = useMemo(
     () => ["hero", "about", "experience", "skills", "projects", "contact"],
     []
@@ -40,6 +43,7 @@ const { lang, setLang, theme, toggleTheme } = useUI();
 
   const [active, setActive] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
+
 
   useEffect(() => {
     const onScroll = () => setActive(getActiveSection(sectionIds));
@@ -95,7 +99,8 @@ const { lang, setLang, theme, toggleTheme } = useUI();
             onClick={() => scrollTo("#contact")}
             className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
           >
-            Connect
+            {t.connect}
+
           </button>
         </nav>
 
@@ -138,9 +143,10 @@ const { lang, setLang, theme, toggleTheme } = useUI();
           className="md:hidden rounded-lg border border-slate-200 px-3 py-2 text-sm"
           onClick={() => setMobileOpen((s) => !s)}
           aria-expanded={mobileOpen}
-          aria-label="Toggle menu"
+          aria-label={t.menu}
         >
-          Menu
+          {t.menu}
+
         </button>
       </Container>
 
@@ -170,7 +176,8 @@ const { lang, setLang, theme, toggleTheme } = useUI();
                 onClick={() => scrollTo("#contact")}
                 className="mt-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
               >
-                Connect
+                {t.connect}
+
               </button>
             </div>
           </Container>

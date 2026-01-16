@@ -1,6 +1,10 @@
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import { about } from "../../data/about";
+import { useUI } from "../../context/ui-context";
+import { strings } from "../../i18n/strings";
+
+
 
 function Icon({ type }: { type: string }) {
   // simple inline icons (no dependency)
@@ -37,13 +41,16 @@ function Icon({ type }: { type: string }) {
 }
 
 export default function About() {
+  const { lang } = useUI();
+  const t = strings[lang];
   return (
     <section id="about" className="bg-white py-16 md:py-20">
       <Container>
         <SectionHeading
-          title="About Me"
-          subtitle="A quick overview of who I am and what I enjoy building."
-        />
+  title={t.aboutTitle}
+  subtitle={t.aboutSubtitle}
+/>
+
 
         <div className="grid gap-10 md:grid-cols-2">
           {/* Left content */}
@@ -62,20 +69,24 @@ export default function About() {
                 download
                 className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
               >
-                Download Resume
+                {t.downloadResume}
+
+                
+
               </a>
 
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 hover:bg-slate-50"
               >
-                Contact
+                {t.contact}
+
               </a>
             </div>
 
             {/* Education */}
             <div className="mt-10">
-              <h3 className="text-sm font-semibold text-slate-900">Education</h3>
+              <h3 className="text-sm font-semibold text-slate-900">{t.education}</h3>
               <div className="mt-3 space-y-3">
                 {about.education.map((e) => (
                   <div
