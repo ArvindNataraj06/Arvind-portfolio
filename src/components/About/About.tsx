@@ -4,8 +4,6 @@ import { about } from "../../data/about";
 import { useUI } from "../../context/ui-context";
 import { strings } from "../../i18n/strings";
 
-
-
 function Icon({ type }: { type: string }) {
   // simple inline icons (no dependency)
   const base = "h-5 w-5 text-blue-600";
@@ -43,6 +41,9 @@ function Icon({ type }: { type: string }) {
 export default function About() {
   const { lang } = useUI();
   const t = strings[lang];
+  const content = about[lang];
+
+  
   return (
     <section id="about" className="bg-white py-16 md:py-20">
       <Container>
@@ -56,16 +57,16 @@ export default function About() {
           {/* Left content */}
           <div>
             <p className="max-w-xl leading-7 text-slate-600">
-              {about.intro}
+              {content.intro}
             </p>
 
             <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4">
-              <p className="text-sm italic text-slate-700">“{about.quote}”</p>
+              <p className="text-sm italic text-slate-700">“{content.quote}”</p>
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href={about.resumeUrl}
+                href={content.resumeUrl}
                 download
                 className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
               >
@@ -88,7 +89,7 @@ export default function About() {
             <div className="mt-10">
               <h3 className="text-sm font-semibold text-slate-900">{t.education}</h3>
               <div className="mt-3 space-y-3">
-                {about.education.map((e) => (
+                {content.education.map((e) => (
                   <div
                     key={e.title}
                     className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
@@ -106,7 +107,7 @@ export default function About() {
 
           {/* Right highlights */}
           <div className="grid gap-4 sm:grid-cols-2">
-            {about.highlights.map((h) => (
+            {content.highlights.map((h) => (
               <div
                 key={h.title}
                 className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"

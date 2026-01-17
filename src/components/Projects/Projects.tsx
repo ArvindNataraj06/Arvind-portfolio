@@ -1,18 +1,26 @@
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import { projects } from "../../data/projects";
+import { useUI } from "../../context/ui-context";
+import { strings } from "../../i18n/strings";
+
 
 export default function Projects() {
+const { lang } = useUI();
+const t = strings[lang].projects;
+const items = projects[lang];
+
+
   return (
     <section id="projects" className="py-16">
       <Container>
         <SectionHeading
-          title="Projects"
-          subtitle="Selected work that showcases what I’m building and learning."
+          title={t.title}
+          subtitle={t.subtitle}
         />
 
         <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((p) => (
+          {items.map((p) => (
             <div key={p.title} className="rounded-2xl border p-6">
               <h3 className="text-lg font-semibold">{p.title}</h3>
               <p className="mt-2 text-sm text-slate-600">{p.description}</p>

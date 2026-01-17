@@ -1,18 +1,24 @@
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import { experience } from "../../data/experience";
+import { useUI } from "../../context/ui-context";
+import { strings } from "../../i18n/strings";
 
 export default function Experience() {
+const { lang } = useUI();
+const items = experience[lang];
+const t = strings[lang].experience;
+
   return (
     <section id="experience" className="py-16">
       <Container>
         <SectionHeading
-          title="Experience"
-          subtitle="Where I’ve contributed and what I worked on."
+          title={t.title}
+          subtitle={t.subtitle}
         />
 
         <div className="space-y-6">
-          {experience.map((item) => (
+          {items.map((item) => (
             <div key={item.role} className="rounded-2xl border p-6">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                 <div>

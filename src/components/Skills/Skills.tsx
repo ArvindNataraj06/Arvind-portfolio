@@ -3,11 +3,15 @@ import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import { skills } from "../../data/Skills";
 import type { SkillCategory } from "../../data/Skills";
+import { useUI } from "../../context/ui-context";
+import { strings } from "../../i18n/strings";
 
 type Tab = "All" | SkillCategory;
 
 export default function Skills() {
   const [active, setActive] = useState<Tab>("All");
+  const { lang } = useUI();
+  const t = strings[lang].skills;
 
   const filtered = useMemo(() => {
     if (active === "All") return skills;
@@ -18,8 +22,8 @@ export default function Skills() {
     <section id="skills" className="py-16">
       <Container>
         <SectionHeading
-          title="Technical Skills"
-          subtitle="Technologies I use and actively learn through real projects."
+          title={t.title}
+          subtitle={t.subtitle}
         />
 
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">

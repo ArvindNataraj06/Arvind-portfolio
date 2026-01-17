@@ -1,13 +1,19 @@
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
+import { useUI } from "../../context/ui-context";
+import { strings } from "../../i18n/strings";
+
 
 export default function Contact() {
+const { lang } = useUI();
+const t = strings[lang].contactSection;
+
   return (
     <section id="contact" className="py-16">
       <Container>
         <SectionHeading
-          title="Contact"
-          subtitle="Open to opportunities and collaborations. Feel free to reach out."
+          title={t.title}
+          subtitle={t.subtitle}
         />
 
         <div className="rounded-2xl border p-6">
@@ -22,7 +28,7 @@ export default function Contact() {
               </a>
             </div>
             <div>
-              <p className="text-sm text-slate-600">Location</p>
+            <p className="text-sm text-slate-600">{t.locationLabel}</p>
               <p className="font-semibold">Heidelberg, Germany</p>
             </div>
             <div>
