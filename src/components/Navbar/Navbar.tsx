@@ -23,18 +23,16 @@ function getActiveSection(ids: string[]) {
 }
 
 export default function Navbar() {
-    
-const { lang, setLang, theme, toggleTheme } = useUI();
-const t = strings[lang].nav;
+  const { lang, setLang, theme, toggleTheme } = useUI();
+  const t = strings[lang].nav;
 
-const NAV: NavItem[] = [
-  { label: t.about, href: "#about" },
-  { label: t.experience, href: "#experience" },
-  { label: t.skills, href: "#skills" },
-  { label: t.projects, href: "#projects" },
-  { label: t.contact, href: "#contact" },
-];
-
+  const NAV: NavItem[] = [
+    { label: t.about, href: "#about" },
+    { label: t.experience, href: "#experience" },
+    { label: t.skills, href: "#skills" },
+    { label: t.projects, href: "#projects" },
+    { label: t.contact, href: "#contact" },
+  ];
 
   const sectionIds = useMemo(
     () => ["hero", "about", "experience", "skills", "projects", "contact"],
@@ -43,7 +41,6 @@ const NAV: NavItem[] = [
 
   const [active, setActive] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
-
 
   useEffect(() => {
     const onScroll = () => setActive(getActiveSection(sectionIds));
@@ -63,14 +60,17 @@ const NAV: NavItem[] = [
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur">
+    <header
+      className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur
+                 dark:border-slate-800 dark:bg-slate-950/70"
+    >
       <Container className="flex h-16 items-center justify-between">
         <button
           onClick={() => scrollTo("#hero")}
-          className="flex items-center gap-2 font-semibold"
+          className="flex items-center gap-2 font-semibold text-slate-900 dark:text-slate-100"
           aria-label="Go to top"
         >
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 text-white">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900">
             A
           </span>
           <span>Arvind Nataraj</span>
@@ -81,13 +81,16 @@ const NAV: NavItem[] = [
           {NAV.map((item) => {
             const id = item.href.replace("#", "");
             const isActive = active === id;
+
             return (
               <button
                 key={item.href}
                 onClick={() => scrollTo(item.href)}
                 className={clsx(
                   "text-sm font-medium transition",
-                  isActive ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
+                  isActive
+                    ? "text-blue-600 dark:text-blue-400"
+                    : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
                 )}
               >
                 {item.label}
@@ -100,84 +103,91 @@ const NAV: NavItem[] = [
             className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
           >
             {t.connect}
-
           </button>
         </nav>
 
+        {/* Right controls */}
         <div className="flex items-center gap-2">
-  {/* Language toggle */}
-  <div className="rounded-lg border border-slate-200 bg-white p-1 dark:bg-slate-900 dark:border-slate-700">
-    <button
-      onClick={() => setLang("en")}
-      className={`rounded-md px-2 py-1 text-xs font-semibold ${
-        lang === "en" ? "bg-blue-600 text-white" : "text-slate-600 dark:text-slate-300"
-      }`}
-    >
-      EN
-    </button>
-    <button
-      onClick={() => setLang("de")}
-      className={`rounded-md px-2 py-1 text-xs font-semibold ${
-        lang === "de" ? "bg-blue-600 text-white" : "text-slate-600 dark:text-slate-300"
-      }`}
-    >
-      DE
-    </button>
-  </div>
+          {/* Language toggle */}
+          <div className="rounded-lg border border-slate-200 bg-white p-1 dark:border-slate-700 dark:bg-slate-900">
+            <button
+              onClick={() => setLang("en")}
+              className={clsx(
+                "rounded-md px-2 py-1 text-xs font-semibold transition",
+                lang === "en"
+                  ? "bg-blue-600 text-white"
+                  : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
+              )}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLang("de")}
+              className={clsx(
+                "rounded-md px-2 py-1 text-xs font-semibold transition",
+                lang === "de"
+                  ? "bg-blue-600 text-white"
+                  : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
+              )}
+            >
+              DE
+            </button>
+          </div>
 
-  {/* Theme toggle */}
-  <button
-    onClick={toggleTheme}
-    className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 hover:bg-slate-50
-               dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-    aria-label="Toggle theme"
-    title="Toggle theme"
-  >
-    {theme === "light" ? "🌙" : "☀️"}
-  </button>
-</div>
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-50
+                       dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+          >
+            {theme === "light" ? "🌙" : "☀️"}
+          </button>
 
-
-        {/* Mobile */}
-        <button
-          className="md:hidden rounded-lg border border-slate-200 px-3 py-2 text-sm"
-          onClick={() => setMobileOpen((s) => !s)}
-          aria-expanded={mobileOpen}
-          aria-label={t.menu}
-        >
-          {t.menu}
-
-        </button>
+          {/* Mobile menu toggle */}
+          <button
+            className="md:hidden rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-50
+                       dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+            onClick={() => setMobileOpen((s) => !s)}
+            aria-expanded={mobileOpen}
+            aria-label={t.menu}
+          >
+            {t.menu}
+          </button>
+        </div>
       </Container>
 
+      {/* Mobile dropdown */}
       {mobileOpen ? (
-        <div className="border-t border-slate-200 bg-white md:hidden">
+        <div className="border-t border-slate-200 bg-white md:hidden dark:border-slate-800 dark:bg-slate-950">
           <Container className="py-3">
             <div className="flex flex-col gap-2">
               {NAV.map((item) => {
                 const id = item.href.replace("#", "");
                 const isActive = active === id;
+
                 return (
                   <button
                     key={item.href}
                     onClick={() => scrollTo(item.href)}
                     className={clsx(
-                      "rounded-lg px-3 py-2 text-left text-sm font-medium",
+                      "rounded-lg px-3 py-2 text-left text-sm font-medium transition",
                       isActive
-                        ? "bg-blue-50 text-blue-700"
-                        : "text-slate-700 hover:bg-slate-50"
+                        ? "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-300"
+                        : "text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-900"
                     )}
                   >
                     {item.label}
                   </button>
                 );
               })}
+
               <button
                 onClick={() => scrollTo("#contact")}
                 className="mt-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
               >
                 {t.connect}
-
               </button>
             </div>
           </Container>

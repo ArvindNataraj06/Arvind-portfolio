@@ -21,17 +21,19 @@ export default function Skills() {
   return (
     <section id="skills" className="py-16">
       <Container>
-        <SectionHeading
-          title={t.title}
-          subtitle={t.subtitle}
-        />
+        <SectionHeading title={t.title} subtitle={t.subtitle} />
 
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
           {filtered.map((s) => (
             <div
               key={s.name}
-              className="rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
               title={s.category}
+              className="
+                rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm
+                transition hover:-translate-y-0.5 hover:shadow-md
+                dark:border-slate-800 dark:bg-slate-900
+                dark:hover:border-slate-700 dark:hover:bg-slate-900/80
+              "
             >
               <div className="mx-auto flex h-12 w-12 items-center justify-center">
                 <img
@@ -42,7 +44,7 @@ export default function Skills() {
                 />
               </div>
 
-              <div className="mt-3 text-sm font-semibold text-slate-900">
+              <div className="mt-3 text-sm font-semibold text-slate-900 dark:text-slate-100">
                 {s.name}
               </div>
             </div>

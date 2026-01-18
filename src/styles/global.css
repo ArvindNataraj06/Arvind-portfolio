@@ -13,3 +13,7 @@ body {
 html.dark body {
   @apply bg-slate-950 text-slate-100;
 }
+
+* {
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
