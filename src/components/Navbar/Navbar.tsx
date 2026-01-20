@@ -3,6 +3,9 @@ import clsx from "clsx";
 import Container from "../ui/Container";
 import { useUI } from "../../context/ui-context";
 import { strings } from "../../i18n/strings";
+import { FiMail } from "react-icons/fi";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi2";
 
 type NavItem = { label: string; href: string };
 
@@ -59,6 +62,11 @@ export default function Navbar() {
     setMobileOpen(false);
   };
 
+const email = "arvind061201@gmail.com.com"; // change
+const githubUrl = "https://github.com/arvindnataraj06"; // change
+const linkedinUrl = "https://www.linkedin.com/in/arvind-nataraj-3b4b72320/"; // change
+
+
   return (
     <header
       className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur
@@ -107,6 +115,54 @@ export default function Navbar() {
         </nav>
 
         {/* Right controls */}
+
+        <div className="flex items-center gap-2">
+  {/* Email */}
+  <a
+    href={`mailto:${email}`}
+    aria-label="Email"
+    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:bg-slate-50 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+  >
+    <FiMail className="h-5 w-5" />
+  </a>
+
+  {/* GitHub */}
+  <a
+    href={githubUrl}
+    target="_blank"
+    rel="noreferrer"
+    aria-label="GitHub"
+    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:bg-slate-50 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+  >
+    <FaGithub className="h-5 w-5" />
+  </a>
+
+  {/* LinkedIn */}
+  <a
+    href={linkedinUrl}
+    target="_blank"
+    rel="noreferrer"
+    aria-label="LinkedIn"
+    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:bg-slate-50 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+  >
+    <FaLinkedinIn className="h-5 w-5" />
+  </a>
+
+  {/* Theme toggle (updated style) */}
+  <button
+    type="button"
+    onClick={toggleTheme}
+    aria-label="Toggle theme"
+    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:bg-slate-50 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+  >
+    {theme === "dark" ? (
+      <HiOutlineSun className="h-5 w-5" />
+    ) : (
+      <HiOutlineMoon className="h-5 w-5" />
+    )}
+  </button>
+</div>
+
         <div className="flex items-center gap-2">
           {/* Language toggle */}
           <div className="rounded-lg border border-slate-200 bg-white p-1 dark:border-slate-700 dark:bg-slate-900">
@@ -135,7 +191,7 @@ export default function Navbar() {
           </div>
 
           {/* Theme toggle */}
-          <button
+          {/* <button
             onClick={toggleTheme}
             className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-50
                        dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
@@ -143,7 +199,7 @@ export default function Navbar() {
             title="Toggle theme"
           >
             {theme === "light" ? "🌙" : "☀️"}
-          </button>
+          </button> */}
 
           {/* Mobile menu toggle */}
           <button

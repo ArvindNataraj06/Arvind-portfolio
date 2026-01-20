@@ -57,12 +57,15 @@ projects: {
 },
 // CONTACT
 contactSection: {
-  title: "Contact",
-  subtitle: "Let’s connect and discuss opportunities or collaborations.",
+  title: "Let’s Build Together",
+  subtitle: "I’m currently looking for new opportunities and collaborative projects. Feel free to reach out!",
   emailLabel: "Email",
   locationLabel: "Location",
-  cta: "Send Message",
+  linkedinLabel: "LinkedIn",
+  githubLabel: "GitHub",
+  cta: "Connect on LinkedIn",
 },
+
 
 // FOOTER
 
@@ -129,12 +132,15 @@ projects: {
   ctaCode: "Quellcode",
 },
 contactSection: {
-  title: "Kontakt",
-  subtitle: "Lass uns vernetzen und über Möglichkeiten oder Zusammenarbeit sprechen.",
+  title: "Lass uns gemeinsam etwas bauen",
+  subtitle: "Ich suche aktuell nach neuen Möglichkeiten und spannenden Projekten. Melde dich gerne!",
   emailLabel: "E-Mail",
   locationLabel: "Standort",
-  cta: "Nachricht senden",
+  linkedinLabel: "LinkedIn",
+  githubLabel: "GitHub",
+  cta: "Auf LinkedIn verbinden",
 },
+
 
   footer: {
       madeWith: "Erstellt mit",
