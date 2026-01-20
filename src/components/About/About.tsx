@@ -66,13 +66,40 @@ export default function About() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
+              {/* <a
                 href={content.resumeUrl}
                 download
                 className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
               >
                 {t.downloadResume}
-              </a>
+              </a> */}
+
+              <div className="relative inline-block group">
+  <button
+    type="button"
+    className="
+      inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3
+      font-semibold text-white shadow-md transition
+      hover:bg-blue-700 focus:outline-none
+    "
+  >
+    {t.downloadResume}
+  </button>
+
+  {/* Tooltip */}
+  <div
+    className="
+      pointer-events-none absolute -top-12 left-1/2 w-max -translate-x-1/2
+      rounded-lg bg-slate-900 px-3 py-1.5 text-xs text-white
+      opacity-0 transition-opacity duration-200
+      group-hover:opacity-100
+      dark:bg-slate-100 dark:text-slate-900
+    "
+  >
+    Please contact Arvind for resume
+  </div>
+</div>
+
 
               <a
                 href="#contact"

@@ -28,7 +28,7 @@ export const projects: Record<Lang, ProjectItem[]> = {
         "Uses ML to identify patterns and improve prediction accuracy.",
         "Modern frontend dashboard for real-time decision-making.",
       ],
-      tech: ["React", "TypeScript", "APIs", "Machine Learning"],
+      tech: ["React", "TypeScript", "APIs", "FastAPI"],
       accent: "violet",
       links: [
         // add when ready

@@ -47,7 +47,7 @@ export const about: Record<AboutLang, AboutData> = {
       },
       {
         title: "Always Learning",
-        desc: "I improve daily through projects, feedback, and iteration—aiming for measurable progress.",
+        desc: "I improve daily through projects, feedback, and iteration aiming for measurable progress.",
         icon: "spark",
       },
     ],
@@ -91,7 +91,7 @@ export const about: Record<AboutLang, AboutData> = {
       },
       {
         title: "Kontinuierliches Lernen",
-        desc: "Ich verbessere mich täglich durch Projekte, Feedback und Iteration – mit messbarem Fortschritt.",
+        desc: "Ich verbessere mich täglich durch Projekte, Feedback und Iteration mit messbarem Fortschritt.",
         icon: "spark",
       },
     ],
