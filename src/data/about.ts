@@ -23,9 +23,9 @@ export const about: Record<AboutLang, AboutData> = {
         period: "2024 – 2026",
       },
       {
-        title: "B.E. (or B.Tech) — (Your Degree)",
-        org: "(Your University Name)",
-        period: "(Year – Year)",
+        title: "B.E. Information Science and Engineering",
+        org: "Visvesvaraya Technological University",
+        period: "2019 – 2023",
       },
     ],
 

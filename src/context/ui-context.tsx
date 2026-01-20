@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useLayoutEffect,
+  useMemo,
+  useState,
+  useEffect,
+} from "react";
 
 type Lang = "en" | "de";
 type Theme = "light" | "dark";
@@ -26,22 +33,25 @@ export function UIProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("lang", lang);
   }, [lang]);
 
-  useEffect(() => {
+  // ✅ Apply theme BEFORE paint (no lag / no flicker)
+  useLayoutEffect(() => {
+    applyTheme(theme);
     localStorage.setItem("theme", theme);
-    applyTheme(theme);
   }, [theme]);
-
-  useEffect(() => {
-    // apply on first load
-    applyTheme(theme);
-  }, []); // eslint-disable-line
 
   const value = useMemo(
     () => ({
       lang,
       setLang,
       theme,
-      toggleTheme: () => setTheme((t) => (t === "light" ? "dark" : "light")),
+      toggleTheme: () =>
+  setTheme((t) => {
+    const next = t === "light" ? "dark" : "light";
+    applyTheme(next); // ✅ instant DOM update
+    localStorage.setItem("theme", next);
+    return next;
+  }),
+
     }),
     [lang, theme]
   );

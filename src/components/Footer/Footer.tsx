@@ -7,20 +7,31 @@ export default function Footer() {
   const t = strings[lang].footer;
 
   return (
-    <footer className="border-t border-slate-200 py-10 dark:border-slate-800">
-      <Container className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="font-semibold text-slate-900 dark:text-slate-100">
+    <footer className="border-t border-slate-200 py-6 dark:border-slate-800">
+      <Container className="flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between">
+        
+        {/* Left */}
+        <p className="text-slate-600 dark:text-slate-400">
+          © {new Date().getFullYear()}{" "}
+          <span className="font-medium text-slate-800 dark:text-slate-200">
             Arvind Nataraj
-          </p>
-          <p className="text-sm text-slate-600 dark:text-slate-300">
-            {t.roleLine}
-          </p>
-        </div>
-
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          © {new Date().getFullYear()} Arvind Nataraj. {t.copyright}
+          </span>
+          . {t.madeWith}{" "}
+          <span className="text-red-500">❤</span>{" "}
+          {t.withTech}
         </p>
+
+        {/* Right */}
+        <p className="text-slate-600 dark:text-slate-400">
+          <span className="font-medium text-slate-800 dark:text-slate-200">
+            {t.role}
+          </span>
+          {" · "}
+          {t.stack}
+          {" · "}
+          {t.status}
+        </p>
+
       </Container>
     </footer>
   );

@@ -5,7 +5,15 @@ export type ProjectItem = {
   description: string;
   bullets: string[];
   tech: string[];
-  links?: { label: string; href: string }[];
+
+  // NEW (optional)
+  accent?: "slate" | "blue" | "violet";
+  coverImage?: string; // optional image (public/projects/xyz.png)
+  links?: {
+    label: string; // e.g. "GitHub" | "Live" | "Case Study"
+    href: string;
+    kind?: "github" | "live" | "external";
+  }[];
 };
 
 export const projects: Record<Lang, ProjectItem[]> = {
@@ -21,6 +29,12 @@ export const projects: Record<Lang, ProjectItem[]> = {
         "Modern frontend dashboard for real-time decision-making.",
       ],
       tech: ["React", "TypeScript", "APIs", "Machine Learning"],
+      accent: "violet",
+      links: [
+        // add when ready
+        // { label: "GitHub", href: "https://...", kind: "github" },
+        // { label: "Live", href: "https://...", kind: "live" },
+      ],
     },
     {
       title: "Smart Pantry – Microservices-Based Recipe Management System",
@@ -32,10 +46,12 @@ export const projects: Record<Lang, ProjectItem[]> = {
         "Collaborated in an agile team setup.",
       ],
       tech: ["React", "Microservices", "Git", "Agile"],
+      accent: "blue",
       links: [
         {
           label: "GitHub",
           href: "https://github.com/Study-Program-Applied-Computer-Science/software-architecture-and-development-collablab.git",
+          kind: "github",
         },
       ],
     },
@@ -53,6 +69,7 @@ export const projects: Record<Lang, ProjectItem[]> = {
         "Modernes Frontend-Dashboard für Entscheidungen in Echtzeit.",
       ],
       tech: ["React", "TypeScript", "APIs", "Machine Learning"],
+      accent: "violet",
     },
     {
       title: "Smart Pantry – Microservices-basiertes Rezept-Management-System",
@@ -64,10 +81,12 @@ export const projects: Record<Lang, ProjectItem[]> = {
         "Zusammenarbeit im agilen Team-Setup.",
       ],
       tech: ["React", "Microservices", "Git", "Agile"],
+      accent: "blue",
       links: [
         {
           label: "GitHub",
           href: "https://github.com/Study-Program-Applied-Computer-Science/software-architecture-and-development-collablab.git",
+          kind: "github",
         },
       ],
     },

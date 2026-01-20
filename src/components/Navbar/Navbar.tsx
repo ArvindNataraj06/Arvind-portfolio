@@ -31,7 +31,7 @@ export default function Navbar() {
     { label: t.experience, href: "#experience" },
     { label: t.skills, href: "#skills" },
     { label: t.projects, href: "#projects" },
-    { label: t.contact, href: "#contact" },
+    // { label: t.contact, href: "#contact" },
   ];
 
   const sectionIds = useMemo(

@@ -1,5 +1,3 @@
-import type { skills } from "../data/Skills";
-
 export const strings = {
   en: {
     // About section (keep as-is)
@@ -67,10 +65,14 @@ contactSection: {
 },
 
 // FOOTER
-footer: {
-  copyright: " All rights reserved.",
-  builtWith: "Built with React, TypeScript, and Tailwind CSS.",
-},
+
+    footer: {
+      madeWith: "Made with",
+      withTech: "& React + TypeScript",
+      role: "Frontend Engineer",
+      stack: "React · TypeScript · UI",
+      status: "Open to Opportunities",
+    },
 
   },
 
@@ -134,10 +136,13 @@ contactSection: {
   cta: "Nachricht senden",
 },
 
-footer: {
-  copyright: "  Alle Rechte vorbehalten.",
-  builtWith: "Erstellt mit React, TypeScript und Tailwind CSS.",
-},
+  footer: {
+      madeWith: "Erstellt mit",
+      withTech: "& React + TypeScript",
+      role: "Frontend Engineer",
+      stack: "React · TypeScript · UI",
+      status: "Offen für Möglichkeiten",
+    },
 
   },
 } as const;
