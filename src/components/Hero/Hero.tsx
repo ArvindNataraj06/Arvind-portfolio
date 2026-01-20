@@ -69,7 +69,7 @@ export default function Hero() {
                          dark:border-slate-800 dark:bg-slate-900"
             >
               <img
-                src="/image.png"
+                src="/profile.png"
                 alt="Arvind Nataraj"
                 className="h-[320px] w-[280px] object-cover sm:h-[380px] sm:w-[320px]"
               />
