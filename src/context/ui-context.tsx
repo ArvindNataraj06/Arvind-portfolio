@@ -1,10 +1,10 @@
 import React, {
   createContext,
   useContext,
+  useEffect,
   useLayoutEffect,
   useMemo,
   useState,
-  useEffect,
 } from "react";
 
 type Lang = "en" | "de";
@@ -33,7 +33,7 @@ export function UIProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("lang", lang);
   }, [lang]);
 
-  // ✅ Apply theme BEFORE paint (no lag / no flicker)
+  // ✅ key change: run before paint
   useLayoutEffect(() => {
     applyTheme(theme);
     localStorage.setItem("theme", theme);
@@ -45,13 +45,13 @@ export function UIProvider({ children }: { children: React.ReactNode }) {
       setLang,
       theme,
       toggleTheme: () =>
-  setTheme((t) => {
-    const next = t === "light" ? "dark" : "light";
-    applyTheme(next); // ✅ instant DOM update
-    localStorage.setItem("theme", next);
-    return next;
-  }),
-
+        setTheme((t) => {
+          const next = t === "light" ? "dark" : "light";
+          // ✅ instant DOM update (makes click feel immediate)
+          applyTheme(next);
+          localStorage.setItem("theme", next);
+          return next;
+        }),
     }),
     [lang, theme]
   );

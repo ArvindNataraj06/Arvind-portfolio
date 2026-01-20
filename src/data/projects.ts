@@ -55,6 +55,53 @@ export const projects: Record<Lang, ProjectItem[]> = {
         },
       ],
     },
+
+   {
+  title: "Event Scheduling App",
+  description:
+    "Event scheduling and management app with authentication, calendar views, event CRUD, email invitations, and search/filtering.",
+  accent: "blue",
+  coverImage: "", // optional, you can remove this line
+  bullets: [
+    "Auth flow (login/signup) and protected pages",
+    "Calendar views (day/week/month) and event CRUD",
+    "Email invitations to attendees using EmailJS",
+    "Automated testing with Jest + Cypress and CI via GitHub Actions",
+  ],
+  tech: ["React", "Redux", "JavaScript", "EmailJS", "Jest", "Cypress", "GitHub Actions"],
+  links: [
+    {
+      kind: "github",
+      label: "GitHub",
+      href: "https://github.com/ArvindNataraj06/usability-testing-and-verification-testtrio.git",
+    },
+  ],
+},
+
+{
+  title: "Portfolio Website",
+  description:
+    "My personal portfolio built with React + TypeScript + Tailwind, featuring dark/light mode, EN/DE language switch, and clean reusable components.",
+  accent: "violet",
+  bullets: [
+    "Responsive layout with reusable UI components",
+    "Dark/Light theme toggle with persisted preference",
+    "EN/DE language switch with centralized strings",
+    "Polished sections: Hero, About, Experience, Skills, Projects, Contact, Footer",
+  ],
+  tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Context API"],
+  links: [
+    {
+      kind: "github",
+      label: "GitHub",
+      href: "https://github.com/ArvindNataraj06/Arvind-portfolio",
+    },
+    // If you deploy to Vercel later, add:
+    // { kind: "live", label: "Live Demo", href: "https://your-vercel-url.vercel.app" },
+  ],
+},
+
+
   ],
 
   de: [
@@ -90,5 +137,49 @@ export const projects: Record<Lang, ProjectItem[]> = {
         },
       ],
     },
+
+    {
+  title: "Event-Planungs-App",
+  description:
+    "App zur Event- und Terminverwaltung mit Auth, Kalenderansichten, CRUD für Events, E-Mail-Einladungen und Suche/Filter.",
+  accent: "blue",
+  coverImage: "",
+  bullets: [
+    "Auth-Flow (Login/Signup) und geschützte Seiten",
+    "Kalenderansichten (Tag/Woche/Monat) und Event-CRUD",
+    "E-Mail-Einladungen an Teilnehmer mit EmailJS",
+    "Automatisierte Tests mit Jest + Cypress und CI via GitHub Actions",
+  ],
+  tech: ["React", "Redux", "JavaScript", "EmailJS", "Jest", "Cypress", "GitHub Actions"],
+  links: [
+    {
+      kind: "github",
+      label: "GitHub",
+      href: "https://github.com/ArvindNataraj06/usability-testing-and-verification-testtrio.git",
+    },
+  ],
+},
+
+{
+  title: "Portfolio Website",
+  description:
+    "Mein persönliches Portfolio mit React + TypeScript + Tailwind, inklusive Dark/Light Mode, EN/DE Sprachumschaltung und modularen Komponenten.",
+  accent: "violet",
+  bullets: [
+    "Responsives Layout mit wiederverwendbaren UI-Komponenten",
+    "Dark/Light Theme Toggle mit Speicherung",
+    "EN/DE Sprachumschaltung über zentrale Strings",
+    "Sektionen: Hero, About, Experience, Skills, Projects, Contact, Footer",
+  ],
+  tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Context API"],
+  links: [
+    {
+      kind: "github",
+      label: "GitHub",
+      href: "https://github.com/ArvindNataraj06/Arvind-portfolio",
+    },
+  ],
+},
+
   ],
 };
