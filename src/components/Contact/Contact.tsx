@@ -1,5 +1,5 @@
 import Container from "../ui/Container";
-import SectionHeading from "../ui/SectionHeading";
+// import SectionHeading from "../ui/SectionHeading";
 import { useUI } from "../../context/ui-context";
 import { strings } from "../../i18n/strings";
 import { FiMail } from "react-icons/fi";

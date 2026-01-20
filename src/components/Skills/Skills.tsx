@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import Container from "../ui/Container";
+import type { ReactNode } from "react";
 import SectionHeading from "../ui/SectionHeading";
 import { skills, skillCategories } from "../../data/Skills";
 import type { SkillCategory } from "../../data/Skills";
@@ -29,7 +30,7 @@ import { TbApi } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
 import { VscCode } from "react-icons/vsc"; 
 
-const ICONS: Record<string, JSX.Element> = {
+const ICONS: Record<string, ReactNode> = {
   js: <SiJavascript className="h-8 w-8" />,
   ts: <SiTypescript className="h-8 w-8" />,
   py: <SiPython className="h-8 w-8" />,
