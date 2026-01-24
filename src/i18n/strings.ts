@@ -22,7 +22,7 @@ export const strings = {
 
        hero: {
       greeting: "Hi, I'm 👋",
-      role: "Frontend Developer & AI Engineer",
+      role: "Frontend Developer | Software Engineer",
       summary:
         "I build clean, scalable web interfaces and intelligent systems with a focus on real-world impact.",
       ctaPrimary: "View Projects",

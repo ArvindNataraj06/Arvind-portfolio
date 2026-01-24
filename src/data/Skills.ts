@@ -33,7 +33,7 @@ export const skills: Skill[] = [
 
   // Frontend
   { name: "React.js", category: "Frontend", iconKey: "react", colorClass: "text-cyan-400" },
-  { name: "Vue.js", category: "Frontend", iconKey: "vue", colorClass: "text-emerald-500" },
+  // { name: "Vue.js", category: "Frontend", iconKey: "vue", colorClass: "text-emerald-500" },
   { name: "Tailwind CSS", category: "Frontend", iconKey: "tailwind", colorClass: "text-sky-400" },
 
   // Backend
@@ -56,7 +56,7 @@ export const skills: Skill[] = [
   { name: "GitHub", category: "Tools", iconKey: "github", colorClass: "text-slate-900 dark:text-slate-100" },
   { name: "GitHub Actions", category: "Tools", iconKey: "actions", colorClass: "text-indigo-500" },
   { name: "Docker", category: "Tools", iconKey: "docker", colorClass: "text-sky-500" },
-  { name: "Jira", category: "Tools", iconKey: "jira", colorClass: "text-blue-700" },
+  // { name: "Jira", category: "Tools", iconKey: "jira", colorClass: "text-blue-700" },
   { name: "VS Code", category: "Tools", iconKey: "vscode", colorClass: "text-blue-500" },
   { name: "Postman", category: "Tools", iconKey: "postman", colorClass: "text-orange-500" },
 ];

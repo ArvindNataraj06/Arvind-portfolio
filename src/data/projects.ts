@@ -17,6 +17,8 @@ export type ProjectItem = {
 };
 
 export const projects: Record<Lang, ProjectItem[]> = {
+
+
   en: [
     {
       title: "AI-Powered Real-Time Traffic Alert Dashboard (Master’s Thesis)",
@@ -36,6 +38,35 @@ export const projects: Record<Lang, ProjectItem[]> = {
         // { label: "Live", href: "https://...", kind: "live" },
       ],
     },
+
+    {
+  title: "AI Business Insights Dashboard",
+  description:
+    "An AI-powered analytics dashboard that transforms raw business data into KPIs, trends, and plain-language insights — helping teams understand what changed, why it changed, and what to do next.",
+  accent: "blue",
+  bullets: [
+    "Upload CSV datasets and visualize key business KPIs and trends",
+    "Interactive charts with filters for date ranges and metrics",
+    "Planned AI-generated insights explaining metric changes and recommendations",
+    "Designed with a clear roadmap covering frontend, backend, database, and AI layers",
+  ],
+  tech: [
+    "React",
+    "Tailwind CSS",
+    "Recharts",
+    "FastAPI ",
+    "PostgreSQL ",
+    "Gemini ",
+  ],
+  links: [
+    {
+      kind: "github",
+      label: "GitHub",
+      href: "https://github.com/ArvindNataraj06/ai-business-insights-dashboard",
+    },
+  ],
+},
+
     {
       title: "Smart Pantry – Microservices-Based Recipe Management System",
       description:
@@ -118,6 +149,34 @@ export const projects: Record<Lang, ProjectItem[]> = {
       tech: ["React", "TypeScript", "APIs", "Machine Learning"],
       accent: "violet",
     },
+
+    {
+  title: "KI-gestütztes Business-Insights-Dashboard",
+  description:
+    "Ein KI-basiertes Analyse-Dashboard, das Rohdaten in KPIs, Trends und verständliche Insights übersetzt – um zu erklären, was sich geändert hat, warum es passiert ist und welche nächsten Schritte sinnvoll sind.",
+  accent: "blue",
+  bullets: [
+    "CSV-Upload zur Analyse von Geschäftskennzahlen und Trends",
+    "Interaktive Diagramme mit Filtern nach Zeitraum und Metriken",
+    "Geplante KI-Insights zur Erklärung von Veränderungen und Empfehlungen",
+    "Klares Full-Stack-Produktkonzept mit Frontend, Backend, Datenbank und KI",
+  ],
+  tech: [
+    "React",
+    "Tailwind CSS",
+    "Recharts",
+    "FastAPI",
+    "PostgreSQL",
+    "Gemini",
+  ],
+  links: [
+    {
+      kind: "github",
+      label: "GitHub",
+      href: "https://github.com/ArvindNataraj06/ai-business-insights-dashboard",
+    },
+  ],
+},
     {
       title: "Smart Pantry – Microservices-basiertes Rezept-Management-System",
       description:
