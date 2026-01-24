@@ -101,7 +101,7 @@ contactSection: {
     //Hero 
      hero: {
       greeting: "Hi, ich bin Arvind",
-      role: "Frontend Entwickler & KI-Ingenieur",
+      role: "Frontend Entwickler & Software-Ingenieur",
       summary:
         "Ich entwickle saubere, skalierbare Web-Oberflächen und intelligente Systeme mit Fokus auf reale Anwendungen.",
       ctaPrimary: "Projekte ansehen",
